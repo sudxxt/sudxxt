@@ -194,17 +194,17 @@
         @media (max-width: 768px) {
             /* Используем :where для группировки селекторов */
             .max-w-4xl { max-width: 100vw !important; }
-            main#content { padding: 0.5rem !important; }
-            .pixel-border { box-shadow: 2px 2px 0 #fff; border-width: 1.5px; border-radius: 7px !important; }
-            .pixel-text { font-size: 0.95rem !important; }
-            h1.pixel-text { font-size: 1.45rem !important; letter-spacing: 0.5px !important; }
-            h2.pixel-text { font-size: 1.05rem !important; }
-            section.pixel-border { padding: 0.8rem !important; }
-            .grid { grid-template-columns: 1fr !important; gap: 0.7rem !important; }
-            .flex-1 img, .fade-in-img { max-width: 100px !important; max-height: 100px !important; }
+            main#content { padding: 0.3rem !important; }
+            .pixel-border { box-shadow: 2px 2px 0 #fff; border-width: 1.2px; border-radius: 7px !important; }
+            .pixel-text { font-size: 0.97rem !important; }
+            h1.pixel-text { font-size: 1.1rem !important; letter-spacing: 0.1px !important; margin-bottom: 0.3rem !important; }
+            h2.pixel-text { font-size: 0.97rem !important; margin-bottom: 0.3rem !important; }
+            section.pixel-border { padding: 0.3rem !important; margin-bottom: 0.5rem !important; }
+            .grid { grid-template-columns: 1fr !important; gap: 0.3rem !important; }
+            .flex-1 img, .fade-in-img { max-width: 44px !important; max-height: 44px !important; }
             .tilt, .glow-btn, .glow-btn:focus { font-size: 0.93rem !important; }
-            .tilt { padding: 0.45rem !important; }
-            .glow-btn, .glow-btn:focus { padding: 0.45rem 0.7rem !important; border-radius: 4px !important; }
+            .tilt { padding: 0.2rem !important; }
+            .glow-btn, .glow-btn:focus { padding: 0.2rem 0.4rem !important; border-radius: 4px !important; width: 100% !important; min-width: 0 !important; }
             #console-widget {
                 width: 98vw !important;
                 min-width: 0 !important;
@@ -212,8 +212,8 @@
                 right: auto !important;
                 bottom: 4.2rem !important;
                 transform: none !important;
-                padding: 0.5rem !important;
-                font-size: 0.74rem !important;
+                padding: 0.3rem !important;
+                font-size: 0.7rem !important;
                 max-width: 99vw !important;
                 border-radius: 10px !important;
             }
@@ -223,30 +223,46 @@
             }
             #chat-toggle-btn {
                 bottom: 4.2rem !important;
+                width: 2.8rem !important;
+                height: 2.8rem !important;
+                font-size: 1.3rem !important;
+                padding: 0.2rem !important;
+            }
+            #scrollTopBtn {
+                bottom: 1.2rem !important;
                 width: 2.2rem !important;
                 height: 2.2rem !important;
                 font-size: 1.1rem !important;
                 padding: 0.2rem !important;
             }
-            #scrollTopBtn {
-                bottom: 1.2rem !important;
-                width: 1.8rem !important;
-                height: 1.8rem !important;
-                font-size: 0.8rem !important;
-                padding: 0.2rem !important;
-            }
-            footer.pixel-text { font-size: 0.68rem !important; padding: 0.5rem 0 !important; }
-            header.text-center { padding-top: 0.4rem !important; padding-bottom: 0.4rem !important; }
-            .space-y-12 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.4rem !important; }
+            footer.pixel-text { font-size: 0.7rem !important; padding: 0.3rem 0 !important; }
+            header.text-center { padding-top: 0.2rem !important; padding-bottom: 0.2rem !important; }
+            .space-y-12 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem !important; }
             a, button, .glow-btn { min-height: 38px !important; min-width: 38px !important; }
-            #chat-close-btn { font-size: 1.6em !important; padding: 0.1em 0.4em !important; }
-            /* Hide background gif on very small screens for perf */
-            @media (max-width: 420px) {
-                .bg-fon { display: none !important; }
-                .pixel-border { padding: 0.5rem !important; }
-                .glow-btn, .glow-btn:focus { font-size: 0.85rem !important; padding: 0.3rem 0.5rem !important; }
-                .fade-in-img, .flex-1 img { max-width: 70px !important; max-height: 70px !important; }
-            }
+            #chat-close-btn { font-size: 1.2em !important; padding: 0.1em 0.4em !important; }
+            /* Hide background gif and heavy images on mobile for perf */
+            .bg-fon { display: none !important; }
+            .fade-in-img, .flex-1 img { max-width: 44px !important; max-height: 44px !important; }
+            /* Disable glitch and spark on mobile for perf */
+            .glitch { animation: none !important; }
+            .pixel-spark, .pixel-spark-dot, .ripple { display: none !important; }
+            /* Stack flex layouts vertically */
+            .flex-col, .md\:flex-row { flex-direction: column !important; }
+            .gap-6 { gap: 0.3rem !important; }
+            /* Ensure no horizontal scroll */
+            html, body { overflow-x: hidden !important; }
+            /* Make contacts buttons stack and full width */
+            .flex.justify-center.gap-4 { flex-direction: column !important; gap: 0.3rem !important; align-items: stretch !important; }
+            .flex.justify-center.gap-4 a { width: 100% !important; }
+        }
+        @media (max-width: 540px) {
+            :where(.pixel-text, h1.pixel-text, h2.pixel-text) { font-size: 0.7rem !important; }
+            .glow-btn, .glow-btn:focus { font-size: 0.7rem !important; }
+            .pixel-border { border-radius: 6px !important; }
+            .tilt { font-size: 0.7rem !important; }
+            .fade-in-img, .flex-1 img { max-width: 32px !important; max-height: 32px !important; }
+            section.pixel-border { padding: 0.15rem !important; }
+            h1.pixel-text { font-size: 0.8rem !important; }
         }
         /* Оптимизация: убираем дублирование и группируем селекторы */
         @media (max-width: 540px) {
@@ -335,7 +351,7 @@
 
         <!-- About me -->
         <section class="pixel-border p-6 bg-black bg-opacity-80 fade-in">
-            <h2 class="text-3xl pixel-text mb-4 fade-in">About me</h2>
+            <h2 class="text-3xl pixel-text mb-4 fade-in">About_me</h2>
             <div class="flex flex-col md:flex-row gap-6 items-center md:items-stretch">
                 <div class="flex-1 flex flex-col justify-center h-full">
                     <div class="grid grid-cols-2 gap-y-2 mb-4">
@@ -347,7 +363,7 @@
                         <div>16</div>
                     </div>
                     <p class="mb-2">I write in Go, break prod, chill in think-asta~.</p>
-                    <p>GO dev. from think@asta/</p>
+                    <p>GO dev. from think@asta/ </p>
                 </div>
                 <div class="flex-1 flex items-center justify-center">
                     <img src="gift.gif" alt="Pixel art" class="w-full max-w-xs h-auto pixel-border fade-in-img">
@@ -372,9 +388,9 @@
         <section class="pixel-border p-6 bg-black bg-opacity-80 text-center fade-in">
             <h2 class="text-3xl pixel-text mb-4 fade-in">Contacts</h2>
             <div class="flex justify-center gap-4">
-                <a href="https://t.me/sudxxt" class="p-2 border border-white hover:bg-white hover:text-black transition tilt glow-btn">Telegram</a>
+                <a href="https://t.me/sudxxtt" class="p-2 border border-white hover:bg-white hover:text-black transition tilt glow-btn">Telegram</a>
                 <a href="https://github.com/sudxxt" class="p-2 border border-white hover:bg-white hover:text-black transition tilt glow-btn">GitHub</a>
-                <a href="mailto:sudxxt@example.com" class="p-2 border border-white hover:bg-white hover:text-black transition tilt glow-btn">Email</a>
+                <a href="mailto:sudxxt@gmail.com" class="p-2 border border-white hover:bg-white hover:text-black transition tilt glow-btn">Email</a>
             </div>
         </section>
     </main>
@@ -383,7 +399,7 @@
     <footer class="w-full mt-12 py-4 text-center text-gray-400 pixel-text fade-in" style="font-size: 0.9rem;">
         <div>
             &copy; 2024 sudxxt | <a href="https://github.com/sudxxt" class="underline hover:text-white glow-btn">GitHub</a> &middot; 
-            <a href="https://t.me/sudxxt" class="underline hover:text-white glow-btn">Telegram</a>
+            <a href="https://t.me/sudxxtt" class="underline hover:text-white glow-btn">Telegram</a>
         </div>
     </footer>
 
@@ -429,15 +445,27 @@
             const canvas = document.getElementById('matrix-preloader');
             const ctx = canvas.getContext('2d');
             function resize() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
+                // On mobile, use lower resolution for perf
+                if (window.innerWidth <= 768) {
+                    canvas.width = Math.floor(window.innerWidth / 2);
+                    canvas.height = Math.floor(window.innerHeight / 2);
+                    canvas.style.width = window.innerWidth + 'px';
+                    canvas.style.height = window.innerHeight + 'px';
+                } else {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    canvas.style.width = '';
+                    canvas.style.height = '';
+                }
             }
             resize();
             window.addEventListener('resize', resize);
 
             const chars = "01";
-            const fontSize = 18;
-            let columns = Math.floor(canvas.width / fontSize);
+            // Lower font size and animation freq on mobile
+            const isMobile = window.innerWidth <= 768;
+            const fontSize = isMobile ? 12 : 18;
+            let columns = Math.floor((isMobile ? canvas.width : canvas.width) / fontSize);
             let drops = Array(columns).fill(1);
 
             function drawMatrix() {
@@ -454,7 +482,8 @@
                     drops[i]++;
                 }
             }
-            let interval = setInterval(drawMatrix, 50);
+            // Lower FPS on mobile for perf
+            let interval = setInterval(drawMatrix, isMobile ? 90 : 50);
             return () => clearInterval(interval);
         }
 
@@ -513,6 +542,13 @@
 
         // Fade-in/slide-in on scroll
         function fadeInOnScroll() {
+            // Disable fade-in on mobile for perf
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.fade-in, .fade-in-img').forEach(el => {
+                    el.classList.add('visible');
+                });
+                return;
+            }
             const fadeEls = document.querySelectorAll('.fade-in, .fade-in-img');
             const observer = new window.IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -527,6 +563,8 @@
 
         // Ripple effect for buttons/links
         function addRippleEffect() {
+            // Disable ripple on mobile for perf
+            if (window.innerWidth <= 768) return;
             document.querySelectorAll('.glow-btn').forEach(el => {
                 el.addEventListener('click', function(e) {
                     const rect = el.getBoundingClientRect();
@@ -700,6 +738,8 @@
 
         // Pixel spark effect on hover for .glow-btn
         document.addEventListener('DOMContentLoaded', function() {
+            // Disable spark on mobile for perf
+            if (window.innerWidth <= 768) return;
             document.querySelectorAll('.glow-btn').forEach(el => {
                 el.addEventListener('mouseenter', function(e) {
                     // Remove old sparks if any
